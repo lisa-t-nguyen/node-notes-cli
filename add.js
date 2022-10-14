@@ -10,9 +10,13 @@ const objStringify = JSON.stringify(object);
 const objKey = Object.keys(object);
 const nextId = jsonObj.nextId;
 
+function newObject() {
+  const
+}
+
 
 // NEW CODE BELOW
-fs.writeFile('./data.json', newNote, 'utf8', err => {
+fs.appendFile('./data.json', jsonObj + newNote, 'utf8', err => {
   if (err) {
     throw err;
   } else {
