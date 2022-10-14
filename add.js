@@ -8,19 +8,17 @@ const newNote = process.argv[2];
 const objStringify = JSON.stringify(object);
 
 const objKey = Object.keys(object);
+const nextId = jsonObj.nextId;
+
 
 // NEW CODE BELOW
 fs.writeFile('./data.json', newNote, 'utf8', err => {
   if (err) {
     throw err;
   } else {
-    const nextId = jsonObj.nextId;
-    const stringyId = nextId.toString();
-    console.log(stringyId)
-
-    object[stringyId] = newNote;
-    console.log('object:', object);
-    nextId++;
+    object[nextId] = newNote;
+    JSON.stringify(object, null, 2);
+    jsonObj.nextId++;
   }
 });
 
